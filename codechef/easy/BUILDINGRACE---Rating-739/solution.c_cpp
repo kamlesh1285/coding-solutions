@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+
+int main() {
+	// your code goes here
+	int T;
+	cin>>T;
+	while (T--) {
+	    int A, B, X, Y;
+	    cin>>A>>B>>X>>Y;
+	    if ((A*Y) == (B*X)) {
+	        cout<<"Both"<<"\n";
+	    }
+	    else if ((A*Y) < (B*X)) {
+	        cout<<"Chef"<<"\n";
+	    } else {
+	        cout<<"Chefina"<<"\n";
+	    }
+	}
+	
+	
+
+}
