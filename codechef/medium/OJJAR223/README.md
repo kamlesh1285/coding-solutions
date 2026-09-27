@@ -36,24 +36,24 @@ You'll implement the winner logic in the next part of the project!
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-27T04:30:12.202Z  
+**Submitted:** 2026-09-27T04:32:52.272Z  
 
 ```cpp
-export default Square;
-
-}
-    </button>
-  ); // User will implement this
-      {value}
-
-function Square({ value, onClick }) {
-  return (
-    <button className="square" onClick ={onClick}>
-// 3. Should have appropriate styling (use className "square")
+// TODO: Implement this component
 // Requirements:
 // 1. Should display the value (prop) inside the button
 // 2. Should call onClick prop when clicked
-// TODO: Implement this component
+// 3. Should have appropriate styling (use className "square")
+function Square({ value, onClick }) {
+  return (
+    <button className="square" onClick ={onClick}>
+      {value}
+
+    </button>
+  ); // User will implement this
+}
+
+export default Square;
 ```
 
 ---
