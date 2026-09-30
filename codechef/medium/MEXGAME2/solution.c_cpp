@@ -10,6 +10,8 @@ void solve() {
     vector<int> A(N);
     for (int &x : A) cin>>x;
     
+    int answer = 0;
+    
     
     
     for (int mex = 0; mex <= 101; mex++) {
