@@ -64,10 +64,11 @@ Alice
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T15:24:15.614Z  
+**Submitted:** 2026-09-30T15:32:12.228Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
+#include <map>
 using namespace std;
 
 void solve() {
@@ -75,23 +76,27 @@ void solve() {
     cin>>N;
     
     vector<int> A(N);
-    set<int> present_elements;
+    map<int> freq;
+    set<int> present;
     
     for (int i=0; i<N; i++) {
         cin>>A[i];
-        present_elements.insert(A[i]);
+        present.insert(A[i]);
         
     }
     
     int mex = 0;
-    while (present_elements.count(mex)) {
+    while (present.count(mex)) {
         mex++;
     }
     
     long long total_moves = 0;
-    for (int i = 0; i < N; i++) {
-        if (A[i] > mex) {
-            total_moves += (A[i] - mex);
+    
+    for (auto const& [val, count] : freq) {
+        if (val > mex) {
+            total_moves += (long long)(val - mex - 1) * count;
+        } else if (val < mex && val > 0) {
+            total_moves += (long long)val * (count - 1);
         }
     }
     
