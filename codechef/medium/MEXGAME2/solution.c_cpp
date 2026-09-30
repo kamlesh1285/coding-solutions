@@ -1,0 +1,100 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+
+void solve() {
+    int N;
+    cin>>N;
+    
+    vector<int> A(N);
+    for (int &x : A) cin>>x;
+    
+    
+    
+    for (int mex = 0; mex <= 101; mex++) {
+        vector<int> pref(N+1, 0);
+        
+        for (int i=0; i<N; i++) {
+            int x=A[i];
+            int w=0;
+            
+            if (x<mex) {
+                w=x;
+            }
+            else if (x>=mex+2) {
+                w=x-mex-1;
+            }
+            
+            pref[i+1] = pref[i]^(w & 1);
+        }
+        
+        vector<int> cnt0(N+2, 0);
+        vector<int> cnt1(N+2, 0);
+        
+        for (int i=0; i<=N; i++) {
+            cnt0[i+1] = cnt0[i] + (pref[i] == 0);
+            cnt1[i+1] = cnt1[i] + (pref[i] == 1);
+        }
+        
+        vector<int> last(mex, -1);
+        
+        int lastMex = -1;
+        
+        for (int r=0; r<N; r++) {
+            int x=A[r];
+            if(x == mex) {
+                lastMex = r;
+            }
+            else if (x<mex) {
+                last[x]=r;
+            }
+            
+            int minLast;
+            
+            if(mex == 0) {
+               minLast = r+1; 
+            }
+            else {
+                minLast = N;
+                
+                for(int x=0; x<mex; x++) {
+                    minLast = min(minLast, last[x]);
+            }
+            
+            if (minLast == -1)
+                continue;
+        }
+        
+        int L = max(0, lastMex+1);
+        int R = minLast;
+        
+        if (L>R)
+            continue;
+        
+        int C = (mex*(mex-1)/2)&1;
+        
+        int requiredParity = C^1;
+        
+        int needed = pref[r+1]^requiredParity;
+        
+        if(needed == 0) {
+            answer += cnt0[R + 1] - cnt0[L];
+        }
+        else {
+            answer += cnt1[R+1] - cnt1[L];
+        }
+    }
+    }
+    cout<<answer<<"\n";
+}
+
+int main() {
+	// your code goes here
+	int T;
+	cin>>T;
+	while (T--) {
+	    solve();
+	}
+
+}
