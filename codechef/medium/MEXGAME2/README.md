@@ -64,7 +64,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T16:24:41.255Z  
+**Submitted:** 2026-09-30T16:25:48.763Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -78,6 +78,8 @@ void solve() {
     
     vector<int> A(N);
     for (int &x : A) cin>>x;
+    
+    int answer = 0;
     
     
     
