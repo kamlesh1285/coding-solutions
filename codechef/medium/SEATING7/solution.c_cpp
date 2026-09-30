@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    int N, M, K;
+    cin>>N>>M>>K;
+    
+    vector<bool> occupied(N + 1, false);
+    
+    for (int i=0; i<M; i++) {
+        int seat;
+        cin>>seat;
+        occupied[seat] = true;
+    }
+    
+    int current_seat = 1;
+    for (int i=0; i<K; i++) {
+        while (current_seat <= N && occupied[current_seat]) {
+            current_seat++;
+        }
+        
+        occupied[current_seat] = true;
+        
+        cout<<current_seat<<(i == K - 1 ? "" : " ");
+    }
+    cout<<"\n";
+}
+
+int main() {
+	// your code goes here
+	int T;
+	cin>>T;
+	while (T--) {
+	    solve();
+	    
+	}
+
+}
