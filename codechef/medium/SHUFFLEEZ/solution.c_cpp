@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MOD = 998244353;
+
+long long power(long long base, long long exp) {
+    long long res = 1;
+    base %= MOD;
+    while (exp > 0) {
+        if(exp &1) 
+            res = (res*base)%MOD;
+            
+        base = (base*base)%MOD;
+        exp >>= 1;
+    }
+    return res;
+}
+
+void solve() {
+    int N, K;
+    cin>>N>>K;
+    
+    for (int i=0; i<N; i++) {
+        int x;
+        cin>>x;
+    }
+    
+    long long factorial = 1;
+    
+    for(long long i=1; i<=K; i++) {
+        factorial = (factorial*i)%MOD;
+    }
+    
+    long long kp = power(K, N-K);
+    
+    long long ans = (kp*factorial)%MOD;
+    cout<<ans<<"\n";
+}
+
+int main() {
+	// your code goes here
+	int T;
+	cin>>T;
+	while (T--) {
+	    solve();
+	}
+
+}
