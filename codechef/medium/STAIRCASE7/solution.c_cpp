@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    int n;
+    cin>>n;
+    
+    unordered_map<int, int> counts;
+    int max_freq = 0;
+    
+    for (int i=0; i<n; ++i) {
+        int val;
+        cin>>val;
+        
+        int target_base = val - i;
+        
+        counts[target_base]++;
+        max_freq = max(max_freq, counts[target_base]);
+    }
+    
+    cout<< n - max_freq << "\n";
+}
+
+int main() {
+	// your code goes here
+	
+	int T;
+	cin>>T;
+	while (T--) {
+	    solve();
+	}
+
+}
