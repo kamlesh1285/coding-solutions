@@ -11,25 +11,8 @@ int main() {
         int N;
         cin >> N;
 
-        // Today is Monday (day 1). Tuesday is day 2.
-        // In every block of 7 days, Tuesday occurs once.
-        // Number of Tuesdays in N days starting from Monday:
-        int tuesdays = (N + 5) / 7;  // ceil((N - 1) / 7) + 1 for day 2
-
-        // Alternative direct formula:
-        // tuesdays = (N + 5) / 7;
-        // This works because:
-        // - For N=1 (only Monday): (1+5)/7 = 0 Tuesdays
-        // - For N=2 (Mon,Tue): (2+5)/7 = 1 Tuesday
-        // - For N=8 (Mon..next Mon): (8+5)/7 = 1 Tuesday... wait, need to check
-        // Let me verify: N=8 means days 1..8, Tuesday at day 2 and day 9? No, day 9 is next Tuesday but N=8 only covers days 1..8, so only 1 Tuesday.
-        // (8+5)/7 = 13/7 = 1. Correct.
-        // N=9: days 1..9, Tuesdays at day 2 and day 9. (9+5)/7 = 14/7 = 2. Correct.
-        // N=1: (1+5)/7 = 6/7 = 0. Correct.
-        // N=2: (2+5)/7 = 1. Correct.
-        // N=7: (7+5)/7 = 12/7 = 1. Correct (only day 2).
-        // N=8: (8+5)/7 = 1. Correct.
-        // N=9: (9+5)/7 = 2. Correct.
+        
+        int tuesdays = (N + 5) / 7; 
 
         cout << tuesdays << "\n";
     }
