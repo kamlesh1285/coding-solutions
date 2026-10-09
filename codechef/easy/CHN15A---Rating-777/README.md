@@ -54,30 +54,36 @@ After transmogrification, the characteristic values become {12,14,11,45,11}, out
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-05T17:48:41.080Z  
+**Submitted:** 2026-10-09T17:40:02.299Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-	// your code goes here
-	int T;
-	cin>>T;
-	while (T--) {
-	    int A, B;
-	    cin>>A>>B;
-	    if ( A > B) {
-	        cout<<">\n";
-	    } else if (A < B) {
-	        cout<<"<\n";
-	    } else {
-	        cout<<"=\n";
-	    }
-	}
+    int T;
+    cin >> T;
+    while (T--) {
+        int N, K;
+        cin >> N >> K;
 
+        int count = 0;
+        for (int i = 0; i < N; i++) {
+            int value;
+            cin >> value;
+
+            int newValue = value + K;
+
+            if (newValue % 7 == 0) {
+                count++;
+            }
+        }
+
+        cout << count << "\n";
+    }
+
+    return 0;
 }
-
 ```
 
 ---
