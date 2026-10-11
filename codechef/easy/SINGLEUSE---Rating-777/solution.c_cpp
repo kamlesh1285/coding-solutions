@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int T;
+    cin >> T;
+    while (T--) {
+        long long H, X, Y;
+        cin >> H >> X >> Y;
+
+        
+        long long remainingAfterSpecial = H - Y;
+        long long attacksCase1 = 1; // special attack counts as 1 attack
+        if (remainingAfterSpecial > 0) {
+            attacksCase1 += (remainingAfterSpecial + X - 1) / X; // ceil(remaining / X)
+        }
+
+        // Case 2: Don't use special attack, only normal attacks
+        long long attacksCase2 = (H + X - 1) / X; // ceil(H / X)
+
+        // Minimum of both cases
+        cout << min(attacksCase1, attacksCase2) << "\n";
+    }
+
+    return 0;
+}
