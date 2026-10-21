@@ -53,7 +53,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-21T15:49:34.432Z  
+**Submitted:** 2026-10-21T16:00:11.671Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -65,56 +65,47 @@ void solve() {
     
     cin>>S>>D;
     
-    int first_D = -1;
+    int first_conflict = -1;
     for (int i=0; i<S.length(); i++) {
         if (S[i] - '0' == D) {
-            first_D = i;
+            first_conflict = i;
             break;
         }
     }
     
-    if (first_D == -1) {
+    if (first_conflict == -1) {
         cout<<S<<"\n";
         return;
     }
     
-    int carry = 1;
-    int last_increased_idx = first_D;
-    
-    for (int i = first_D; i>=0; i--) {
-        int val = (S[i] - '0') + carry;
-        carry = 0;
+    bool incremented = false;
+    for (int i = first_conflict; i>=0; i--) {
+        int cur_digit = S[i] - '0';
+        int next_digit = cur_digit + 1;
         
-        if (val == D) {
-            val++;
+        if (next_digit == D) {
+            next_digit++;
         }
         
-        if (val > 9) {
-            val = (D == 0) ? 1 : 0;
-            carry = 1;
-        }
-        
-        S[i] == val + '0';
-        if (carry == 0) {
-            last_increased_idx = i;
+        if (next_digit <= 9) {
+            S[i] = next_digit + '0';
+            
+            char fill_digit = (D == 0) ? '1' : '0';
+            for (int j=i+1; j<S.length(); j++) {
+                S[j] = fill_digit;
+            }
+            incremented = true;
             break;
         }
     }
     
-    char min_digit = (D == 0) ? '1' : '0';
-    
-    if (carry > 0) {
-        int val = 1;
-        if (val == D) val++;
-        S = to_string(val) + S;
-        last_increased_idx = 0;
+    if (!incremented) {
+        int lead = (D==1) ? 2 : 1;
+        string fill_str(S.length(), (D == 0) ? '1' : '0');
+        S = to_string(lead) + fill_str;
     }
     
-    for (int i = last_increased_idx + 1; i<S.length(); i++) {
-        S[i] = min_digit;
-    }
-    
-    cout<<S<<"\n";
+    cout<< S << "\n";
 }
 
 int main() {
