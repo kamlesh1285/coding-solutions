@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    int N, S;
+    cin>>N>>S;
+    
+    int C_min = (S + 3) / 4;
+    
+    int A_min = 5 * C_min - S;
+    
+    if (A_min <= N) {
+        cout<< A_min << "\n";
+    } else {
+        cout<< -1 << "\n";
+    }
+}
+
+int main() {
+	// your code goes here
+	
+	int T;
+	cin>>T;
+	while (T--) {
+	    solve();
+	}
+	
+	return 0;
+
+}
