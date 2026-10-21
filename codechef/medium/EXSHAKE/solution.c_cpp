@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    int n;
+    long long m;
+    cin>>n>>m;
+    
+    vector<long long> a(n);
+    for (int i=0; i<n; i++) {
+        cin>> a[i];
+    }
+    
+    sort(a.begin(), a.end());
+    
+    long long total_people = 0;
+    int invited_groups = 0;
+    
+    for (int i=0; i<n; i++) {
+        long long next_total = total_people + a[i];
+        long long handshakes = (next_total * (next_total - 1)) / 2;
+        
+        if (handshakes <= m) {
+            total_people = next_total;
+            invited_groups++;
+        } else {
+            break;
+        }
+    }
+    
+    cout<< invited_groups << "\n";
+}
+
+int main() {
+	// your code goes here
+	
+	int T;
+	cin>>T;
+	while (T--) {
+	    solve();
+	}
+	
+	return 0;
+	
+
+}
