@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    unsigned long long N;
+    cin>>N;
+    
+    unsigned long long low = 1, high = 2000000;
+    unsigned long long ans = 1;
+    
+    while (low <= high) {
+        unsigned long long mid = low + (high - low) / 2;
+        
+        unsigned __int128  min_sum = mid;
+        min_sum = (min_sum * mid * mid + 5 * min_sum) / 6;
+        
+        if (min_sum <= N) {
+            ans = mid;
+            low = mid + 1;
+            
+        } else {
+            high = mid - 1;
+        }
+    }
+    
+    cout<< ans << "\n";
+}
+
+int main() {
+	// your code goes here
+	
+	int T;
+	if (cin>>T) {
+	    while (T--) {
+	        solve();
+	    }
+	}
+
+}
