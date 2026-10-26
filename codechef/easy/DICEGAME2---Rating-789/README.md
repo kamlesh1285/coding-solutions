@@ -53,7 +53,7 @@ Tie
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-16T12:56:54.872Z  
+**Submitted:** 2026-10-26T15:39:02.734Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
