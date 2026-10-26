@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int N;
+    cin >> N;
+
+    long long total1 = 0, total2 = 0;
+    int winner = 1;
+    int maxLead = 0;
+
+    for (int i = 0; i < N; i++) {
+        int s, t;
+        cin >> s >> t;
+
+        total1 += s;
+        total2 += t;
+
+        int lead;
+        if (total1 > total2) {
+            lead = total1 - total2;
+            if (lead > maxLead) {
+                maxLead = lead;
+                winner = 1;
+            }
+        } else {
+            lead = total2 - total1;
+            if (lead > maxLead) {
+                maxLead = lead;
+                winner = 2;
+            }
+        }
+    }
+
+    cout << winner << " " << maxLead << '\n';
+    return 0;
+}
