@@ -1,0 +1,22 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int T;
+    cin >> T;
+
+    while (T--) {
+        long long X, Y;
+        cin >> X >> Y;
+
+        long long months = (Y - 1) / X;
+
+        cout << months << '\n';
+    }
+
+    return 0;
+}
