@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int T;
+	cin>>T;
+	while (T--) {
+	    int A, B, X;
+	    cin>>A>>B>>X;
+	    
+	    // Calculate the number of years directly
+        int years = (B - A) / X;
+        cout << years << "\n";
+	    
+	}
+
+}
